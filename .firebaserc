@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "weather-app-angular-65dba": {
+      "hosting": {
+        "Weather-App": [
+          "weather-app-angular-65dba"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "weather-app-angular-65dba"
+  }
+}
