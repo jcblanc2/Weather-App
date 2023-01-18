@@ -15,15 +15,17 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='instagram2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough2' />
+<img src='weather_app.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with Peek.
+GIF created with LiceCap..
 
 ## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Install Node.js
+* Clone repository
+* Go to project using command-line and type npm i
+* Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2023] [John Clayton]
 
