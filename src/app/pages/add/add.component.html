@@ -44,7 +44,7 @@
       <div class="fav-city-header">
         <h3 class="fav-city-title">CITY OF THE MONTH</h3>
         <hr class="fav-city-hr">
-        <span class="fav-city-date">Sunday, 31th July</span>
+        <span class="fav-city-date">{{days[date.getDay()]}}, {{date.getDate()}}th {{months[date.getMonth()]}}</span>
       </div>
 
       <div class="fav-city-body">
@@ -104,8 +104,8 @@
 
           <div class="fav-city-info">
             <span class="fav-city-temp">{{temp}}°</span>
-            <div class="fav-city-name-wrapper"><span class="fav-city-name">ROME</span><span
-              class="fav-city-country">IT</span></div>
+            <div class="fav-city-name-wrapper"><span class="fav-city-name">Kingston</span><span
+              class="fav-city-country">JM</span></div>
             <span class="fav-city-state">{{state}}</span>
           </div>
           <button class="fav-city-add-btn" [ngClass]="{'fav-city-added-btn': followedCM}" (click)="addCityOfTheMonth()" [disabled]="followedCM">{{followedCM ? "FOLLOWED" : "FOLLOW"}}</button>
