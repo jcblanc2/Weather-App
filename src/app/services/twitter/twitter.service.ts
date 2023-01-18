@@ -6,6 +6,7 @@ import {filter, first, map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class TwitterService {
+  api_url = 'https://localhost:3000';
 
   constructor(public http: HttpClient) {
   }
@@ -26,5 +27,13 @@ export class TwitterService {
         }
       }))),
       map((tweets: any) => tweets.slice(0, 4)));
+  }
+
+
+  getTimeline() {
+    return this.http
+      .get<any[]>(this.api_url+'/home_timeline')
+      .pipe(map(data => data));
+ 
   }
 }

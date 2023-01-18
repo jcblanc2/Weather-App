@@ -13,8 +13,9 @@ import {City} from "../../models/city";
 })
 export class AddComponent implements OnInit, OnDestroy {
 
+  date = new Date(); 
   temp: any;
-  city : string = 'Rome';
+  city : string = 'rome';
   state: any;
   capitals: Array<any> = [];
   selectedCity:any;
@@ -29,6 +30,9 @@ export class AddComponent implements OnInit, OnDestroy {
     createdBy: '',
   };
   userUid: string = '';
+  days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 
   constructor(public http: HttpClient, public weather: WeatherService, public fb: FbService) {
   }
@@ -53,6 +57,7 @@ export class AddComponent implements OnInit, OnDestroy {
 
     this.fb.auth.user.subscribe((user:any)=>{
       this.userUid = user.uid;
+      
     });
 
 
@@ -62,7 +67,7 @@ export class AddComponent implements OnInit, OnDestroy {
         data.id = e.payload.doc.id;
         return data;
       }).forEach((city: City) => {
-        if (city.name === 'Rome' && city.createdBy == this.userUid) {
+        if (city.name === 'rome' && city.createdBy == this.userUid) {
           this.followedCM = true;
         }
       })
@@ -93,3 +98,4 @@ export class AddComponent implements OnInit, OnDestroy {
   }
 
 }
+
