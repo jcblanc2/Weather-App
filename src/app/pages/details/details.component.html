@@ -36,6 +36,7 @@
         </text>
       </g>
     </svg>
+
     <section class="main-weather__card">
       <section class="card-header__container-dark" [ngSwitch]="true">
         <img class="city__illustration" [src]="cityIllustrationPath"/>
@@ -67,7 +68,7 @@
       </section>
       <main class="body-content__wrapper">
         <section class="twitter-feed__container">
-          <<div class="twitter-feed__header">
+          <div class="twitter-feed__header">
             <svg class="twitter__icon" viewBox="4332 625.812 30 24.375">
               <defs>
                 <style>.twitter-icon-fill {
@@ -81,11 +82,10 @@
             <span class="twitter-feed__text">Twitter Feed</span>
             <span class="twitter-feed-tag__text">#{{city}}</span>
           </div>
-          <!-- div class="twitter-feed__body">
-  
-            <ng-container *ngIf="tweets$ | async as tweets; else loadingTweets">
-              <p *ngIf="tweets && tweets.length === 0" class="twitter-no-tweets__text">No Tweets Found</p>
-            <div class="twitter-tweet__container" *ngFor="let tweet of tweets">
+          <div class="twitter-feed__body">
+            <ng-container *ngIf="tweets$; else loadingTweets">
+              <p *ngIf="tweets$ && tweets$.length === 0" class="twitter-no-tweets__text">No Tweets Found</p>
+            <!-- <div class="twitter-tweet__container" *ngFor="let tweet of tweets">
               <div class="tweet-user__wrapper">
               <img [src]="tweet.user.photo" alt="avatar" class="tweet-avatar__image">
                 <div>
@@ -94,19 +94,19 @@
                 </div>
                 </div>
               <p class="tweet__text">{{tweet.text}}</p>
-            </div>
+            </div> -->
             </ng-container>
   
             <ng-template #loadingTweets>
               <div class="twitter__loader"></div>
             </ng-template>
   
-          </div>
+          </div> 
         </section>
         <section class="forecast__container">
-          <div class="day-weather__container" [ngSwitch]="true" *ngFor="let day of daysForecast | keyvalue">
-            <span class="day-name__text">{{day.key}}</span>
-            <svg class="forecast-condition__icon" *ngSwitchCase="day.value.state === 'Clouds'"
+          <div class="day-weather__container" [ngSwitch]="true" *ngFor="let day of daysInfo">
+            <span class="day-name__text">{{day.name}}</span>
+            <svg class="forecast-condition__icon" *ngSwitchCase="day.state === 'Clouds'"
                  viewBox="2436.9 -843.1 275.5 274.1">
               <g data-name="cloudy icon" transform="translate(84 790)">
                 <circle cx="137" cy="137" r="137" fill="#fff" data-name="Ellipse 23" transform="translate(2354 -1633)"/>
@@ -115,12 +115,12 @@
                       data-name="Subtraction 1"/>
               </g>
             </svg>
-            <svg *ngSwitchCase="day.value.state === 'Haze' || day.value.state === 'Fog'" viewBox="0 0 454 366">
+            <svg *ngSwitchCase="day.state === 'Haze' || day.state === 'Fog'" viewBox="0 0 454 366">
               <path fill="#12bcff"
                     d="M340 110c-40 0-75-14-110-26-30-11-61-21-92-27-35-6-65 6-89 34a28 28 0 0 1-40 3C-3 83-3 66 8 54 53 1 110-9 174 7c36 9 71 25 106 36 19 5 39 10 58 11 27 2 48-13 65-33 12-13 29-15 41-5s13 28 1 41c-28 33-63 53-105 53zM120 312c-27-1-51 11-70 34-11 13-29 15-41 4-12-10-12-28-1-40 45-53 103-63 167-47 37 10 72 25 108 36 18 6 37 10 55 11 27 2 47-12 64-32 8-9 17-15 30-12 21 4 29 28 16 45-37 45-85 65-143 51-34-8-66-21-99-32-27-9-53-18-86-18zM123 128c42 1 81 15 120 29 26 9 52 18 79 24 28 6 53-3 74-24l11-11c11-11 27-11 39-1 10 10 11 26 1 38-35 43-81 64-137 52-34-7-67-20-100-32-29-10-59-20-91-19-28 1-51 13-69 34-12 13-29 15-41 4s-12-28 0-41c30-35 68-52 114-53z"/>
             </svg>
             <svg class="forecast-condition__icon"
-                 *ngSwitchCase="day.value.state === 'Rain' || day.value.state === 'Drizzle'"
+                 *ngSwitchCase="day.state === 'Rain' || day.state === 'Drizzle'"
                  viewBox="3170 -843.1 163.5 242.7">
               <g data-name="Rain Icon">
                 <g data-name="Water Drops">
@@ -129,7 +129,7 @@
                 </g>
               </g>
             </svg>
-            <svg class="forecast-condition__icon" *ngSwitchCase="day.value.state === 'Storm' || day.value.state === 'Thunderstorm'"
+            <svg class="forecast-condition__icon" *ngSwitchCase="day.state === 'Storm' || day.state === 'Thunderstorm'"
                  viewBox="3487.9 -810.7 291.2 200.3">
               <g data-name="Strom icon" transform="translate(1959 -1260.7)">
                 <ellipse cx="55.3" cy="51.7" class="cls-1" data-name="Ellipse 14" rx="55.3" ry="51.7"
@@ -155,15 +155,15 @@
               </g>
             </svg>
             <svg class="forecast-condition__icon"
-                 *ngSwitchCase="day.value.state === 'Sunny' || day.value.state === 'Clear'"
+                 *ngSwitchCase="day.state === 'Sunny' || day.state === 'Clear'"
                  viewBox="2050 -845 262 262">
               <circle cx="131" cy="131" r="131" fill="#ffde17" data-name="Sun Icon" transform="translate(2050 -845)"/>
             </svg>
   
   
-            <span class="day-temp__text">{{day.value.temp}}°</span>
-            <span class="day-state__text">{{day.value.state}}</span>
-          </div> -->
+            <span class="day-temp__text">{{day.temp}}°</span>
+            <span class="day-state__text">{{day.state}}</span>
+          </div>
         </section> 
       </main>
     </section>

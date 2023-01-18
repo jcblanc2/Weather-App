@@ -15,7 +15,7 @@ export class AddComponent implements OnInit, OnDestroy {
 
   date = new Date(); 
   temp: any;
-  city : string = 'kingston';
+  city : string = 'rome';
   state: any;
   capitals: Array<any> = [];
   selectedCity:any;
@@ -57,6 +57,7 @@ export class AddComponent implements OnInit, OnDestroy {
 
     this.fb.auth.user.subscribe((user:any)=>{
       this.userUid = user.uid;
+      
     });
 
 
@@ -66,7 +67,7 @@ export class AddComponent implements OnInit, OnDestroy {
         data.id = e.payload.doc.id;
         return data;
       }).forEach((city: City) => {
-        if (city.name === 'kingston' && city.createdBy == this.userUid) {
+        if (city.name === 'rome' && city.createdBy == this.userUid) {
           this.followedCM = true;
         }
       })

@@ -36,6 +36,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
     temp:0,
   };
   daysInfo:Array<any> = [];
+  myTimeline: any;
 
   constructor(public twitter: TwitterService, public activeRouter: ActivatedRoute, public weather: WeatherService, public ui: UiService) {
 
@@ -58,7 +59,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
             break;
           case 'doha':
             this.cityIllustrationPath = '../../assets/cities/qatar.svg';
-            console.log(this.city);
             break;
           case 'rabat':
             this.cityIllustrationPath = '../../assets/cities/rabat.svg';
@@ -93,24 +93,29 @@ export class DetailsComponent implements OnInit, OnDestroy {
           });
         }
       }
-      Object.keys(dates).forEach((day) => {
-        dates.get(day).temp = Math.round(dates.get(day).temp / dates.get(day).counter);
+      dates.forEach((value) => {
+        value.temp = Math.round(value.temp / value.counter);
       });
       dates.delete(Object.keys(dates)[0])
       this.daysForecast = dates;
-
-      this.daysForecast.forEach((key:any) => {
-        this.dayObj.name = '';
-        this.dayObj.counter = key.counter;
-        this.dayObj.state = key.state;
-        this.dayObj.temp = key.temp;
+  
+      dates.forEach((value,key) =>{
+        this.dayObj.name = key;
+        this.dayObj.counter = value.counter;
+        this.dayObj.state = value.state;
+        this.dayObj.temp = Math.round(value.temp);
 
         this.daysInfo.push(this.dayObj);
-        console.log(key)
 
-      });
+        this.dayObj = {
+          name: '',
+          counter: 0,
+          state: '',
+          temp:0,
+        };
 
-      console.log(this.dayObj);
+    });
+
 
     }, (err) => {
       this.errorMessage = err.error.message;
@@ -120,13 +125,22 @@ export class DetailsComponent implements OnInit, OnDestroy {
     })
 
 
-    // this.twitter.fetchTweets(this.city).subscribe((tweet: any) => {
-    //     tweet.forEach((tweet: Tweet) => {
-    //       if(tweet.user){
-    //         this.tweets$.push(tweet);
-    //       }
-    //     });
-    //   });
+    this.twitter.fetchTweets(this.city).subscribe((tweet: any) => {
+        tweet.forEach((tweet: Tweet) => {
+          if(tweet.user){
+            this.tweets$.push(tweet);
+          }
+        });
+      });
+
+
+    // this.twitter.getTimeline()
+    //   .subscribe(
+    //     myTimeline => {
+    //       this.myTimeline = myTimeline;
+    //       console.log(this.myTimeline);
+    //     }
+    //   )
 
     }
 

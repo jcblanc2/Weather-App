@@ -41,7 +41,7 @@
   position: relative;
   z-index: 3;
   justify-items: center;
-  opacity: 0;
+  opacity: 100;
   animation: scaleup 1s ease-out 300ms, fadein 1.25s ease-out 300ms forwards;
 }
 
