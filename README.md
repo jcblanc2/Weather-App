@@ -8,6 +8,7 @@ Time spent: **24** hours spent in total
 ## User Stories
 
 The following **required** functionality is completed:
+- [x] User can view the last 20 posts submitted to "Instagram".
 
 The following **optional** features are implemented:
 
