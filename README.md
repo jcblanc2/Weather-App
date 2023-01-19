@@ -13,8 +13,12 @@ The following **required** functionality is completed:
 - [x]  The current signed in user is persisted across app restarts.
 - [x]  User can search for a city.
 - [x]  User can see weather condition of selected city.
+- [x]  User can see details about selected city like weather forecast
+- [x]  User can save a city
 
 The following **optional** features are implemented:
+- [x] User can see tweets and images from selected city
+- [x] The user can see the cities he has saved
 
 ## Video Walkthrough
 
