@@ -26,12 +26,12 @@ Here's a walkthrough of implemented user stories:
 
 <img src='weather_app.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with LiceCap..
+GIF created with LiceCap.
 
 ## Development server
 * Install Node.js
 * Clone repository
-* Go to project using command-line and type npm i
+* Navigate to the project folder using the command line and type npm i
 * Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## License
