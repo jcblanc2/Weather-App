@@ -31,10 +31,10 @@ GIF created with `LiceCap`.
 ## Development server
 * Install Node.js
 * Clone repository
-* Navigate to the project folder using the command line and type npm i
+* Navigate to the project folder using the command line and type `npm i`
 * Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## License
 
-    Copyright [2023] [John Clayton - UEspoir]
+    Copyright [2023] [`John Clayton - UEspoir`]
 
