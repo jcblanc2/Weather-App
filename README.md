@@ -1,6 +1,6 @@
 # WeatherApp
 
-**WeatherApp** Weather App is a web application that provides weather conditions and forecasts for selected cities.
+**WeatherApp** is a web application that provides weather conditions and forecasts for selected cities.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
 
 Time spent: **24** hours spent in total
