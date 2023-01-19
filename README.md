@@ -8,7 +8,11 @@ Time spent: **24** hours spent in total
 ## User Stories
 
 The following **required** functionality is completed:
-- [x] User can view the last 20 posts submitted to "Instagram".
+- [x]  User can sign up to create a new account Firebase Auth.
+- [x]  User can log in and log out of his or her account.
+- [x]  The current signed in user is persisted across app restarts.
+- [x]  User can search for a city.
+- [x]  User can see weather condition of selected city.
 
 The following **optional** features are implemented:
 
@@ -28,5 +32,5 @@ GIF created with LiceCap..
 
 ## License
 
-    Copyright [2023] [John Clayton]
+    Copyright [2023] [John Clayton - UEspoir]
 
