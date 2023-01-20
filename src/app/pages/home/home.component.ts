@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.result = e.Message;
         }
       }
-  });
+    });
 
     this.fb.getCities().subscribe(res => {
       res.map((e: any) => {
