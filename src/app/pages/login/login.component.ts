@@ -16,11 +16,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   login() {
     this.fb.signin(this.email, this.password)
-      .then(r => this.router.navigateByUrl(''))
+      .then(r => this.router.navigateByUrl('home'))
       .catch(err => this.errorMessage = err);
     setTimeout(() => this.errorMessage = '', 2000)
   }

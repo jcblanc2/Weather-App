@@ -8,10 +8,10 @@ import {SignupComponent} from "./pages/signup/signup.component";
 import {AppGuard} from "./guards/app.guard";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent, canActivate: [AppGuard]},
+  {path: '', component: LoginComponent, canActivate: [AppGuard]},
+  {path: 'home', component: HomeComponent, canActivate: [AppGuard]},
   {path: 'details/:city', component: DetailsComponent, canActivate: [AppGuard]},
   {path: 'add', component: AddComponent, canActivate: [AppGuard]},
-  {path: 'login', component: LoginComponent, canActivate: [AppGuard]},
   {path: 'signup', component: SignupComponent , canActivate: [AppGuard]},
   {path: '**', redirectTo: ''}
 ];
