@@ -24,7 +24,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='weather_app.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='weatherapp.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with `LiceCap`.
 
