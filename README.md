@@ -19,6 +19,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 - [x] User can see comments and images from selected city
 - [x] The user can see the cities he has saved
+- [x] The app is responsive
 
 ## Video Walkthrough
 
