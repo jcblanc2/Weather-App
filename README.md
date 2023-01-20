@@ -17,7 +17,7 @@ The following **required** functionality is completed:
 - [x]  User can save a city
 
 The following **optional** features are implemented:
-- [x] User can see tweets and images from selected city
+- [x] User can see comments and images from selected city
 - [x] The user can see the cities he has saved
 
 ## Video Walkthrough
