@@ -13,7 +13,7 @@ import {City} from "../../models/city";
 })
 export class AddComponent implements OnInit, OnDestroy {
 
-  date = new Date(); 
+  date = new Date();
   temp: any;
   city : string = 'rome';
   state: any;
@@ -51,13 +51,12 @@ export class AddComponent implements OnInit, OnDestroy {
         }
       });
       this.capitals.sort();
-      console.log(this.capitals)
     });
 
 
     this.fb.auth.user.subscribe((user:any)=>{
       this.userUid = user.uid;
-      
+
     });
 
 

@@ -98,7 +98,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
       });
       dates.delete(Object.keys(dates)[0])
       this.daysForecast = dates;
-  
+
       dates.forEach((value,key) =>{
         this.dayObj.name = key;
         this.dayObj.counter = value.counter;
@@ -124,23 +124,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
       }, 2500);
     })
 
-
-    this.twitter.fetchTweets(this.city).subscribe((tweet: any) => {
-        tweet.forEach((tweet: Tweet) => {
-          if(tweet.user){
-            this.tweets$.push(tweet);
-          }
-        });
-      });
-
-
-    // this.twitter.getTimeline()
-    //   .subscribe(
-    //     myTimeline => {
-    //       this.myTimeline = myTimeline;
-    //       console.log(this.myTimeline);
-    //     }
-    //   )
 
     }
 

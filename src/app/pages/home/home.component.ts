@@ -10,14 +10,22 @@ import {City} from "../../models/city";
 export class HomeComponent implements OnInit, OnDestroy {
   cities: Array<any> = [];
   userUid: string = '';
+  result = '';
 
   constructor(public fb: FbService) {
   }
 
   ngOnInit() {
-    this.fb.auth.user.subscribe((user:any)=>{
-      this.userUid = user.uid;
-    });
+    this.fb.auth.user.subscribe((user:any) => {
+      if (user !== null) {
+        try {
+          this.userUid = user.uid;
+        }
+        catch(e:any){
+          this.result = e.Message;
+        }
+      }
+  });
 
     this.fb.getCities().subscribe(res => {
       res.map((e: any) => {

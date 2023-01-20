@@ -15,6 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
   darkModeActive: any;
 
   userEmail = '';
+  result = '';
 
   constructor(public ui: UiService, public fb: FbService, public router: Router) {
   }
@@ -29,7 +30,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.fb.auth.user.subscribe((user:any) => {
       if (user !== null) {
-        this.userEmail = user.email;
+        try {
+          this.userEmail = user.email;
+        }
+        catch(e:any){
+          this.result = e.Message;
+        }
       }
     });
 
@@ -48,6 +54,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   logout() {
+    this.userEmail = '';
     this.toggleMenu();
     this.router.navigateByUrl('/login');
     this.fb.auth.signOut();
